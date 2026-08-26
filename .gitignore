@@ -1,0 +1,28 @@
+# Arquivos de Sistema Operacional
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Arquivos de IDE e Editores de Código
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs e Pacientes de Erro
+*.log
+error_log
+
+# Pacientes e Dependências (caso venha a usar no futuro)
+node_modules/
+vendor/
+
+# Arquivos compactados de backup local
+*.zip
+*.tar.gz
+*.rar
