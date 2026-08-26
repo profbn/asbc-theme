@@ -1,0 +1,12 @@
+/*
+Theme Name: ASBC Theme
+Theme URI: https://asbc.tv.br
+Author: Antonio Bento (BNTV)
+Author URI: https://bento.one
+Description: Tema personalizado para transmissão ao vivo da TV ASBC.
+Version: 1.0.0
+Text Domain: asbc-theme
+*/
+
+/* Importa o estilo estruturado da pasta de assets */
+@import url('assets/css/main.css');
