@@ -53,25 +53,46 @@ add_action( 'after_setup_theme', 'asbc_theme_setup' );
  * 2. Carregamento de Arquivos CSS e JavaScript (Enqueue)
  */
 function asbc_enqueue_scripts() {
-    // Estilo Principal do Tema (style.css na raiz)
-    wp_enqueue_style( 'asbc-style', get_stylesheet_uri(), array(), '1.0.0' );
+    $version = wp_get_theme()->get( 'Version' );
+    $main_css = get_theme_file_path( 'assets/css/main.css' );
+    $toggle_js = get_theme_file_path( 'assets/js/theme-toggle.js' );
 
-    // Estilo dos Assets (assets/css/main.css)
-    wp_enqueue_style( 
-        'asbc-main-style', 
-        get_template_directory_uri() . '/assets/css/main.css', 
-        array(), 
-        '1.0.0' 
+    // O WordPress controla as dependências e evita duplicação do CSS.
+    wp_enqueue_style( 'asbc-style', get_stylesheet_uri(), array(), $version );
+    wp_enqueue_style(
+        'asbc-main-style',
+        get_theme_file_uri( 'assets/css/main.css' ),
+        array( 'asbc-style' ),
+        file_exists( $main_css ) ? (string) filemtime( $main_css ) : $version
     );
 
-    // Script do Botão Dia/Noite (assets/js/theme-toggle.js)
-    wp_enqueue_script( 
-        'asbc-theme-toggle', 
-        get_template_directory_uri() . '/assets/js/theme-toggle.js', 
-        array(), 
-        '1.0.0', 
-        true // Carrega no rodapé
+    wp_enqueue_script(
+        'asbc-theme-toggle',
+        get_theme_file_uri( 'assets/js/theme-toggle.js' ),
+        array(),
+        file_exists( $toggle_js ) ? (string) filemtime( $toggle_js ) : $version,
+        true
     );
+
+    if ( is_front_page() ) {
+        // Dependência externa do player HLS; o JavaScript local oferece
+        // mensagem amigável caso a biblioteca não fique disponível.
+        wp_enqueue_script(
+            'asbc-hls',
+            'https://cdn.jsdelivr.net/npm/hls.js@1/dist/hls.min.js',
+            array(),
+            null,
+            true
+        );
+        $player_js = get_theme_file_path( 'assets/js/live-player.js' );
+        wp_enqueue_script(
+            'asbc-live-player',
+            get_theme_file_uri( 'assets/js/live-player.js' ),
+            array( 'asbc-hls' ),
+            file_exists( $player_js ) ? (string) filemtime( $player_js ) : $version,
+            true
+        );
+    }
 }
 add_action( 'wp_enqueue_scripts', 'asbc_enqueue_scripts' );
 
