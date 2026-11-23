@@ -691,3 +691,55 @@ select:focus-visible {
         animation-duration: 0.01ms !important;
     }
 }
+
+/* Menu acessível no celular. Sem JavaScript, o menu continua visível. */
+.menu-toggle-btn,
+.submenu-toggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .js .menu-toggle-btn {
+        display: inline-block;
+        padding: 10px 16px;
+        color: var(--text-main);
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 6px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .js .main-navigation {
+        display: none;
+        order: 3;
+    }
+
+    .js .main-navigation.is-open {
+        display: block;
+    }
+
+    .js .main-navigation li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .js .main-navigation .submenu-toggle {
+        display: inline-block;
+        margin-left: 4px;
+        padding: 8px 12px;
+        color: var(--text-main);
+        background: transparent;
+        border: 1px solid var(--card-border);
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .js .main-navigation li:not(.submenu-open) > ul {
+        display: none;
+    }
+
+    .js .main-navigation li.submenu-open > ul {
+        display: block;
+    }
+}
