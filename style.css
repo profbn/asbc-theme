@@ -7,6 +7,3 @@ Description: Tema personalizado para transmissão ao vivo da TV ASBC.
 Version: 1.0.0
 Text Domain: asbc-theme
 */
-
-/* Importa o estilo estruturado da pasta de assets */
-@import url('assets/css/main.css');
