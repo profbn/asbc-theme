@@ -30,7 +30,11 @@ $asbc_day  = $asbc_hour >= 6 && $asbc_hour < 18;
         </div>
 
         <div class="header-actions">
-            <nav class="main-navigation" aria-label="<?php esc_attr_e( 'Navegação principal', 'asbc-theme' ); ?>">
+            <button id="asbc-menu-toggle" class="menu-toggle-btn" type="button"
+                aria-controls="asbc-primary-navigation" aria-expanded="false">
+                ☰ Menu
+            </button>
+            <nav id="asbc-primary-navigation" class="main-navigation" aria-label="<?php esc_attr_e( 'Navegação principal', 'asbc-theme' ); ?>">
                 <?php
                 wp_nav_menu( array(
                     'theme_location' => 'primary-menu',
