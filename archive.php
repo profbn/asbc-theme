@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main class="container page-layout-grid">
+<main id="conteudo-principal" class="container page-layout-grid">
     <div class="primary-content">
         <!-- TÍTULO DA CATEGORIA / ARQUIVO -->
         <header class="archive-header">

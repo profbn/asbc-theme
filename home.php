@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main class="page-layout-grid">
+<main id="conteudo-principal" class="page-layout-grid">
     <!-- COLUNA PRINCIPAL (LISTA DE POSTS) -->
     <div class="primary-content">
         <header class="archive-header">

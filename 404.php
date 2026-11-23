@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main class="container page-layout-grid">
+<main id="conteudo-principal" class="container page-layout-grid">
     <div class="primary-content">
         <section class="error-404 not-found">
             <h1 class="error-title">404</h1>

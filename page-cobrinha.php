@@ -5,7 +5,7 @@ Template Name: Jogo da Cobrinha
 get_header(); 
 ?>
 
-<main class="site-main game-container">
+<main id="conteudo-principal" class="site-main game-container">
     <h1>Jogo da Cobrinha</h1>
     <p>Use as setas do teclado (PC) ou os botões (Celular) para jogar</p>
     
